@@ -7,8 +7,24 @@ class Ticket:
 
 def reconstruct_trip(tickets, length):
     
-    """
-    YOUR CODE HERE
-    """
+    storage = dict()
+    routes = list()
 
-    return route
+    for i in tickets:
+        storage[i.source] = i.destination
+
+    index = 0
+    # the first destination will be the one with "NONE" because this is the starting airport
+    destination = "NONE"
+
+    #run loop as long as there are still tickets in itenerary
+    while index < length:
+        # reset the destination to be the next destination for the next iteration
+        destination = storage.get(destination)
+        # add that destination to the final routes list
+        routes.append(destination)
+        index += 1
+    
+    return routes
+
+
